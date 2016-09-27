@@ -1,0 +1,1 @@
+ATTR{bDeviceClass}=="00", ACTION=="add" , RUN+="/usr/bin/store '%s{manufacturer}' '%s{product}"

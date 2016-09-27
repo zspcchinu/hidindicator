@@ -1,0 +1,3 @@
+ATTR{bInterfaceClass}=="03", ACTION=="add" , RUN+="/usr/bin/notify '%s{manufacturer}'"
+
+

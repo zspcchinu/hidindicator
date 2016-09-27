@@ -1,0 +1,9 @@
+#!/bin/sh
+
+#get the details of the plugged in usb devices and store in folder
+
+echo "$1 $2 has been plugged" > /tmp/store
+
+
+
+

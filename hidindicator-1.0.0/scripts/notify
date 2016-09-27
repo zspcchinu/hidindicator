@@ -1,0 +1,31 @@
+#!/bin/sh
+
+#this script pops up the notification on active user's screen
+
+msg=`cat /tmp/store`
+
+#get the number of active users 
+numofusers=`who | awk '{print $2}' | grep : |sort -u| wc -l` 
+tmp=1
+
+#notify on the screen of the active users
+while [ "$tmp" -le "$numofusers" ]
+do
+DISPLAY=`who | awk '{print $2}' | grep : | awk 'NR == "'""$tmp""'" {print}'`
+
+username=`who | awk '{print $1 , $2}' | grep $DISPLAY | awk '{print $1}'`
+
+HOME=/home/$username/
+
+XAUTHORITY=$HOME/.Xauthority
+
+export DISPLAY XAUTHORITY HOME
+
+#pop up the ballon message on the screen 
+
+notify-send "$msg"
+tmp=`expr $tmp + 1 `
+
+done
+
+
